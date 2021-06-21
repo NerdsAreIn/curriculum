@@ -41,19 +41,19 @@ By the end of this lesson, you should be able to do the following:
 - Write an object constructor and instantiate the object.
 - Describe what a prototype is and how it can be used.
 - Explain prototypal inheritance.
-- Understand the basic do's and don't's of prototypical inheritance.
+- Understand the basic dos and don'ts of prototypical inheritance.
 - Explain what `Object.create` does.
 
 ### Objects as a Design Pattern
 
-One of the simplest ways you can begin to organize your code is by simply grouping things into objects. Take these examples from a 'tic tac toe' game:
+One of the simplest ways you can begin to organize your code is by simply grouping things into objects. Take these two contrasting methods of storing data for a 'tic tac toe' game:
 
 ~~~javascript
 // example one
-const playerOneName = "tim"
-const playerTwoName = "jenn"
-const playerOneMarker = "X"
-const playerTwoMarker = "O"
+const playerOneName = "tim";
+const playerTwoName = "jenn";
+const playerOneMarker = "X";
+const playerTwoMarker = "O";
 
 // example two
 const playerOne = {
@@ -67,39 +67,39 @@ const playerTwo = {
 }
 ~~~
 
-At first glance, the first doesn't seem so bad.. and it actually takes fewer lines to write than the example using objects, but the benefits are huge! Let me demonstrate:
+At first glance, the first doesn't seem so bad... and it actually takes fewer lines to write than the example using objects. However, the benefits of the second example are huge! Let me demonstrate:
 
 ~~~javascript
 function printName(player) {
-  console.log(player.name)
+  console.log(player.name);
 }
 ~~~
 
-This is something that you just could NOT do with the example one setup. Instead, every time you wanted to print a specific player's name you would have to remember the correct variable name and then manually `console.log` it:
+This is something that you just could NOT do with the example one setup. Instead, every time you wanted to print a specific player's name, you would have to remember the correct variable name and then manually `console.log` it:
 
 ~~~javascript
-console.log(playerOneName)
-console.log(playerTwoName)
+console.log(playerOneName);
+console.log(playerTwoName);
 ~~~
 
-Again, this isn't _that_ bad... but what if you _don't know_ which player's name you want to print?
+Again, this isn't _that_ bad... But what if you _don't know_ which player's name you want to print?
 
 ~~~javascript
 function gameOver(winningPlayer){
-  console.log("Congratulations!")
-  console.log(winningPlayer.name + " is the winner!")
+  console.log("Congratulations!");
+  console.log(winningPlayer.name + " is the winner!");
 }
 ~~~
 
-Or, what if we aren't making a 2 player game, but something more complicated such as an online shopping site with a large inventory? In that case, using objects to keep track of an item's name, price, description and other things is the only way to go. Unfortunately, in that type of situation manually typing out the contents of our objects is not feasible either. We need a cleaner way to create our objects, which brings us to...
+Or, what if we aren't making a 2 player game, but something more complicated such as an online shopping site with a large inventory? In that case, using objects to keep track of an item's name, price, description and other things is the only way to go. Unfortunately, in that type of situation, manually typing out the contents of our objects is not feasible either. We need a cleaner way to create our objects, which brings us to...
 
 ### Object Constructors
 
-When you have a specific type of object that you need to duplicate like our player or inventory items a better way to create them is using an object constructor, which is a function that looks like this:
+When you have a specific type of object that you need to duplicate like our player or inventory items, a better way to create them is using an object constructor, which is a function that looks like this:
 
 ~~~javascript
 function Player(name, marker) {
-  this.name = name
+  this.name = name,
   this.marker = marker
 }
 ~~~
@@ -107,40 +107,41 @@ function Player(name, marker) {
 and which you use by calling the function with the keyword `new`.
 
 ~~~javascript
-const player = new Player('steve', 'X')
-console.log(player.name) // 'steve'
+const player = new Player('steve', 'X');
+console.log(player.name); // 'steve'
 ~~~
 
-Just like with objects created using the Object Literal method you can add functions to the object:
+Just like with objects created using the Object Literal syntax, you can add functions to the object constructor. These functions will then be available to all the objects created using that constructor, such as `player` above. For an illustration, see below:
 
 ~~~javascript
 function Player(name, marker) {
-  this.name = name
-  this.marker = marker
+  this.name = name,
+  this.marker = marker,
   this.sayName = function() {
     console.log(name)
   }
 }
 
-const player1 = new Player('steve', 'X')
-const player2 = new Player('also steve', 'O')
-player1.sayName() // logs 'steve'
-player2.sayName() // logs 'also steve'
+const player1 = new Player('steve', 'X');
+const player2 = new Player('also steve', 'O');
+player1.sayName(); // logs 'steve'
+player2.sayName(); // logs 'also steve'
 ~~~
 
+We call functions declared inside an object or within an object constructor _methods_. These are functions exclusive to a particular object or, in the case of a constructor, to a type of object.
 
 
 ### Exercise
 
-Write a constructor for making "Book" objects. We will revisit this in the project at the end of this lesson. Your book objects should have the book's `title`, `author`, the number of `pages`, and whether or not you have `read` the book
+Write a constructor for making "Book" objects. We will revisit this in the project at the end of this lesson. Your book objects should have the book's `title`, `author`, the number of `pages`, and whether or not you have `read` the book.
 
 Put a function into the constructor that can report the book info like so:
 
 ~~~javascript
-theHobbit.info() // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
+theHobbit.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet."
 ~~~
 
-note: it is almost _always_ best to `return` things rather than putting `console.log()` directly into the function. In this case, return the `info` string and log it after the function has been called:
+Note: it is almost _always_ best to `return` things rather than putting `console.log()` directly into the function. In this case, return the `info` string and log it after the function has been called:
 
 ~~~javascript
 console.log(theHobbit.info());
@@ -148,23 +149,23 @@ console.log(theHobbit.info());
 
 ### The Prototype
 
-Before we go much further, there's something important you need to understand about JavaScript objects. All objects in JavaScript have a `prototype`. Stated simply, the prototype is another object that the original object _inherits_ from, which is to say, the original object has access to all of its prototype's methods and properties.
+Before we go much further, there's something important you need to understand about JavaScript objects. All objects in JavaScript have a `prototype`. An object constructor function lays out the prototype for a type, or _class_, of object. Stated simply, the prototype is another object that each descendent object _inherits_ from, which is to say, the descendent object has access to all of its prototype's methods and properties.
 
 This concept is an important one, so you've got some reading to do. Make sure you really get this before moving on!
 
-1. [This article](https://web.archive.org/web/20200513181548/https://javascriptissexy.com/javascript-prototype-in-plain-detailed-language/) is a straightforward introduction and demonstration of the concept. It also covers constructors again.. good time for a review! The important bits here, once you've covered the basics are 'Prototype-based inheritance' and the 'Prototype chain'
-2. To go a bit deeper into both the chain and inheritance spend some time with [this great article](http://javascript.info/prototype-inheritance). As usual, doing the exercises at the end will help cement this knowledge in your mind. Don't skip them! Important note: this article makes heavy use of `__proto__` which is not generally recommended. The concepts here are what we're looking for at the moment. We will soon learn another method or two for setting the prototype.
+1. [This article](https://web.archive.org/web/20200513181548/https://javascriptissexy.com/javascript-prototype-in-plain-detailed-language/) is a straightforward introduction and demonstration of the concept. It also covers constructors again... Good time for a review! The important bits here, once you've covered the basics, are 'Prototype-based inheritance' and the 'Prototype chain'.
+2. To go a bit deeper into both the chain and inheritance, spend some time with [this great article](http://javascript.info/prototype-inheritance). As usual, doing the exercises at the end will help cement this knowledge in your mind. Don't skip them! Important note: this article makes heavy use of `__proto__`, which is not generally recommended. The concepts here are what we're considering at the moment. We will soon learn another method or two for setting the prototype.
 
-If you've understood the concept of the prototype then this next bit about constructors will not be confusing at all!
+If you've understood the concept of the prototype, then this next bit about constructors will not be confusing at all!
 
 ~~~javascript
 function Student(name, grade) {
-  this.name = name
+  this.name = name,
   this.grade = grade
 }
 
 Student.prototype.sayName = function() {
-  console.log(this.name)
+  console.log(this.name);
 }
 Student.prototype.goToProm = function() {
   // eh.. go to prom?
@@ -182,18 +183,18 @@ function Student() {
 }
 
 Student.prototype.sayName = function() {
-  console.log(this.name)
+  console.log(this.name);
 }
 
 function EighthGrader(name) {
-  this.name = name
+  this.name = name,
   this.grade = 8
 }
 
 EighthGrader.prototype = Object.create(Student.prototype)
 
 const carl = new EighthGrader("carl")
-carl.sayName() // console.logs "carl"
+carl.sayName(); // console.logs "carl"
 carl.grade // 8
 ~~~
 
@@ -202,7 +203,7 @@ You can probably figure out what's going on here. After creating the constructor
 A warning... this doesn't work:
 
 ~~~javascript
-EighthGrader.prototype = Student.prototype
+EighthGrader.prototype = Student.prototype;
 ~~~
 
 because it will literally set EighthGrader's prototype to Student.prototype (i.e. not a copy), which could cause problems if you want to edit something in the future. Consider one more example:
@@ -212,11 +213,11 @@ function Student() {
 }
 
 Student.prototype.sayName = function() {
-  console.log(this.name)
+  console.log(this.name);
 }
 
 function EighthGrader(name) {
-  this.name = name
+  this.name = name,
   this.grade = 8
 }
 
@@ -224,17 +225,17 @@ function EighthGrader(name) {
 EighthGrader.prototype = Student.prototype
 
 function NinthGrader(name) {
-  this.name = name
+  this.name = name,
   this.grade = 9
 }
 
 // noooo! not again!
-NinthGrader.prototype = Student.prototype
+NinthGrader.prototype = Student.prototype;
 
-NinthGrader.prototype.sayName = function() {console.log("HAHAHAHAHAHA")}
+NinthGrader.prototype.sayName = function() {console.log("HAHAHAHAHAHA")};
 
 const carl = new EighthGrader("carl")
-carl.sayName() //uh oh! this logs "HAHAHAHAHAHA" because we edited the sayName function!
+carl.sayName(); //uh oh! this logs "HAHAHAHAHAHA" because we edited the sayName function!
 ~~~
 
 If we had used `Object.create` in this example then we could safely edit the `NinthGrader.prototype.sayName` function without changing the function for `EighthGrader` as well.
