@@ -71,6 +71,8 @@ As mentioned above, you can name your methods almost anything you want, but you 
 
 Your method names can use numbers, capital letters, lowercase letters, and the special characters `_`, `?`, `!`, and `=`. Just like with variable names in Ruby, the convention for a method name with multiple words is to use **snake_case**, separating words with underscores.
 
+It's good practice to start the method name with a lower-case character, because names that start with capital letters are constants in Ruby. Check [here](https://stackoverflow.com/questions/10542354/what-are-the-restrictions-for-method-names-in-ruby) for more details.
+
 Here are some things you are not allowed to do with your method names:
 
 * You cannot name your method one of Ruby's approximately 40 reserved words, such as `end`, `while`, or `for`. Checkout the full list [here](http://www.java2s.com/Code/Ruby/Language-Basics/Rubysreservedwords.htm).
@@ -299,6 +301,7 @@ Writing `whisper.downcase!` is the equivalent of writing `whisper = whisper.down
 1. For a good introduction to all the different concepts related to methods, read the [Methods chapter](https://launchschool.com/books/ruby/read/methods) from Launch School's *Introduction to Programming with Ruby*. Make sure to do the exercises at the end of the chapter too!
 2. To get a different take, read the part of the Objects section that discusses [Methods](http://ruby-for-beginners.rubymonstas.org/objects/methods.html) from Ruby Monsta's *Ruby for Beginners*.
 3. For more depth on how you can write your own methods, read the section on [Writing Methods](http://ruby-for-beginners.rubymonstas.org/writing_methods.html) from Ruby Monsta's *Ruby for Beginners*.
+4. Complete the [method](https://github.com/TheOdinProject/ruby-exercises/tree/master/ruby_basics) exercises from the [ruby-exercises repo](https://github.com/TheOdinProject/ruby-exercises) that you previously cloned.
 </div>
 
 ### Additional Resources

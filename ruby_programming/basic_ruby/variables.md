@@ -64,7 +64,7 @@ Ruby is a language that aims to be natural to read and easy to write. Remember t
 
 Naming variables clearly will pay dividends when you review your code months after you've written it, when you can no longer remember what that variable was designed to store. From now on, when naming your variables, remember the following quote by John Woods:
 
-> Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
+> Always code as if the person who ends up maintaining your code will be a violent psychopath who knows where you live.
 
 The most basic thing you can do to write clean, maintainable code is to name your variables properly. So get into this habit early to avoid psychopath programmers coming after you.
 
@@ -108,7 +108,7 @@ This example may be hard to completely understand at this point in the lesson. T
 ### Assignment
 <div class="lesson-content__panel" markdown="1">
 
-1. Read the [Variables](https://launchschool.com/books/ruby/read/variables) chapter from LaunchSchool's brilliant *Introduction to Programming With Ruby*. As indicated in this article, remember that you should not use `$global_variables` or `@@class_variables`.
+1. Read the [Variables](https://launchschool.com/books/ruby/read/variables) chapter from LaunchSchool's brilliant *Introduction to Programming With Ruby*. As indicated in this article, remember that you should not use `$global_variables`. Additionally, `@@class_variables` are rarely needed and easily misused.
 2. Read through these short, to-the-point variable lessons by Ruby Monstas:
       * [Overview of Variables](http://ruby-for-beginners.rubymonstas.org/variables.html)
       * [Reusing Variables](http://ruby-for-beginners.rubymonstas.org/variables/reusing_names.html)

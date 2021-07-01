@@ -22,8 +22,7 @@ After completing this lesson, you will be able to:
 
 Why do we even need or want this stuff? What do you gain from all of this added complexity? These are good questions.. with good answers.
 
-- Read [this article](https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70) for a bit of a history lesson. It's long, but it puts what we're doing here in great perspective. You don't _have_ to code along with the examples - the tutorials we cover later will go through basically the same process. But it's good practice and going through the same process multiple times will help it stick faster.
-- Seriously.. spend some time with that article - it really clarifies the 'WHY' of the rest of this lesson.
+- Read [this article](https://peterxjang.com/blog/modern-javascript-explained-for-dinosaurs.html) for a bit of a history lesson. It's long, but it puts what we're doing here in great perspective.  This article is a bit older, and those who have coded along with the example have frequently run into issues, so we don't suggest that you code along (you'll be following along with the offical Webpack documentation later). Nevertheless, this article is extremely important conceptually and really clarifies the 'WHY' of the rest of this lesson.
 
 ### npm
 
@@ -110,7 +109,7 @@ and then in `src/index.js` import and use your new function.
 import myName from './myName';
 
 function component() {
-  var element = document.createElement('div');
+  const element = document.createElement('div');
 
   // use your function!
   element.innerHTML = myName('Cody');

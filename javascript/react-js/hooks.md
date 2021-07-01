@@ -43,7 +43,7 @@ Afterwards we are declaring a function, which right now just sets a new count. I
 
 ### useEffect
 
-Well, we don't have any lifecycle methods such as `componentDidMount`, `componentDidUpdate` or `componentDidUnmount`, but we do have something better. We have `useEffect`, which can actually do everything the above mentioned lifecycle methods can do. Let's have a closer look.
+Well, we don't have any lifecycle methods such as `componentDidMount`, `componentDidUpdate` or `componentWillUnmount`, but we do have something better. We have `useEffect`, which can actually do everything the above mentioned lifecycle methods can do. Let's have a closer look.
 
 ~~~javascript
 import React, { useState, useEffect } from "react";
@@ -107,23 +107,23 @@ You have three different options for the dependency array:
 
 1. Leave it empty. If you leave it empty the useEffect hook would look something like this:
 
-~~~javascript
+   ~~~javascript
 useEffect(() => {
   // Do something
 }, []);
 ~~~
 
-This option is equal to a `componentDidMount` lifecycle method, meaning the hook runs **one time** when the component mounts (is inserted in the DOM tree)
+   This option is equal to a `componentDidMount` lifecycle method, meaning the hook runs **one time** when the component mounts (is inserted in the DOM tree)
 
 2. Add a dependency to the array. Like we did it in our example code.
 
-~~~javascript
+   ~~~javascript
 useEffect(() => {
   // Do something
 }, [color]);
 ~~~
 
-This way, the useEffect hook will re-run anytime the dependency (color) changes. This is similar to a `componentDidUpdate` method, with the only difference that it only runs when a certain condition has changed.
+   This way, the useEffect hook will re-run anytime the dependency (color) changes. This is similar to a `componentDidUpdate` method, with the only difference that it only runs when a certain condition has changed.
 
 3. Leave out the dependency array.
 
@@ -148,16 +148,11 @@ If you write a return statement like the above in a useEffect, it will do the sa
 ### Assignment
 
 <div class="lesson-content__panel" markdown="1">
-1. The React documentation provides a whole section on hooks. Read through all steps [here](https://reactjs.org/docs/hooks-intro.html). You can also always refer back to this page if you get stuck. The main idea to understand the concepts, the details come with time.
-2. Now go back to your CV Project and rewrite it using functional components and hooks.
+1. The React documentation provides a whole section on hooks. Read through all steps [here](https://reactjs.org/docs/hooks-intro.html). You can also always refer back to this page if you get stuck. The main idea is to understand the concepts, the details come with time.
+2. Now go back to your CV Project and rewrite it using functional components and hooks.  
 </div>
 
 ### Additional Resources
 
 * [Here](https://www.ohansemmanuel.com/react-hooks-documentation-easy-to-read/) is another article about hooks, which provides a simpler version of the official React hooks documentation.
-
 * [Watch this video](https://youtu.be/-MlNBTSg_Ww) for a look into `useState()`, `useEffect()` and custom hooks in great detail.
-
-Have an additional resource that helped you with this lesson?
-
-You can edit the [lesson file](https://github.com/TheOdinProject/curriculum/blob/master/javascript/react-js/hooks.md) and create a pull request to have one added!

@@ -23,15 +23,16 @@ Look through these now and then use them to test yourself after doing the assign
 ### Assignment
 
 <div class="lesson-content__panel" markdown="1">
-  1. Read the [Chapter on Recursion](http://ruby.bastardsbook.com/chapters/recursion/) in the Bastards Book of Ruby by Dan Nguyen
-  2. Watch this [Video on Recursion](http://vimeo.com/24716767) by Joshua Cheek but only until minute 17:36!  (don't want to give away the project...)
-  3. Read the ["Implementation Issues" section of the wiki article](http://en.wikipedia.org/wiki/Divide_and_conquer_algorithm#Implementation_issues) to get an overview of some of the limitations of recursion.
+  1. Read the [Chapter on Recursion](http://ruby.bastardsbook.com/chapters/recursion/) in the Bastards Book of Ruby by Dan Nguyen.
+  2. Watch [this explanation of Recursion](https://www.youtube.com/watch?v=6oDQaB2one8) by Web Dev Simplified.
+  3. Watch this [Video on Recursion](https://www.youtube.com/watch?v=mz6tAJMVmfM) from CS50.
+  4. Read the ["Implementation Issues" section of the wiki article](http://en.wikipedia.org/wiki/Divide_and_conquer_algorithm#Implementation_issues) to get an overview of some of the limitations of recursion.
 </div>
 
 ### Test Yourself
 
 <div class="lesson-content__panel" markdown="1">
-  1. Complete the [Code Quiz](http://www.codequizzes.com/computer-science/beginner/recursion) on Recursion.
+  1. Solve each of the questions from this [Code Quiz](http://www.codequizzes.com/computer-science/beginner/recursion) on Recursion. You are not expected to answer them from memory at this point.
 </div>
 
 ### Additional Resources
@@ -42,5 +43,4 @@ This section contains helpful links to other content. It isn't required, so cons
 * [Efficient Recursion from U of Alberta](http://webdocs.cs.ualberta.ca/~holte/T26/efficient-rec.html)
 * [Natashatherobot's blog post on Recursion in Ruby](http://natashatherobot.com/recursion-factorials-fibonacci-ruby/)
 * [Functional Programming Techniques with Ruby post](http://www.sitepoint.com/functional-programming-techniques-with-ruby-part-iii/), which covers recursion at the top
-* [CS50 explanation of recursion](https://www.youtube.com/watch?v=mz6tAJMVmfM)
 * [A breakdown of the recursive Fibonacci method](https://youtu.be/zg-ddPbzcKM) from Khan Academy

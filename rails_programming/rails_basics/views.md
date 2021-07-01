@@ -113,10 +113,17 @@ There's a lot you can do with partials and we won't dive into it all here, but o
 In the example above, you most likely want to pass the `@user` variable to the partial so your code can render the right kind of form. `render` is just a regular method and it lets you pass it an [options hash](https://stackoverflow.com/questions/18407618/what-are-options-hashes).  One of those options is the `:locals` key, which will contain the variables you want to pass.  Your code might change to look like:
 
 ~~~erb
-  <%= render "shared/your_partial", :locals => { :user => user } %>
+  <%= render partial: "shared/your_partial", :locals => { :user => user } %>
 ~~~  
 
-To use the variable in your partial file, you drop the `@` and call it like a normal variable.
+To use the variable in your partial file, you drop the `@` and call it like a normal variable. Note that you should use the `:locals` option if you're calling the `render` method with a `:partial` key. 
+
+There is a `render` shortcut that allows you to simply pass in variables without the need of using the `:locals` option:
+
+~~~erb
+  <%= render "shared/your_partial", :user => user %>
+~~~
+
 
 ### Implicit Partials
 
@@ -220,7 +227,6 @@ Now that you've got a taste of the high-level stuff, read through the Rails Guid
 <div class="lesson-content__panel" markdown="1">
 
   1. Read the [Rails Guide chapter on Layouts and Rendering](http://guides.rubyonrails.org/layouts_and_rendering.html), sections 1 through 3.4.  You can certainly skim when they start going over all the many different options you can pass to a given function... it's good to know what they are and where you can find them, but you don't need to memorize all of them.  Usually you'll have something that you want to do, Google it, and find a Stack Overflow post that shows you the option you can use.
-  2. Now that you are familiar with Models, Views, and Controllers, it is time put them all together by reading [Ruby on Rails Guides: Getting Started](https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application), sections 3.2 through 8.1. You do not have to build this blog project because you will complete a similar tutorial in a few lessons.
 </div>
 
 ### Conclusion
